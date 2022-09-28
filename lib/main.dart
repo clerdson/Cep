@@ -2,8 +2,6 @@ import 'package:cep/inject.dart';
 import 'package:cep/presentation/views/splash.dart';
 import 'package:flutter/material.dart';
 
-import 'presentation/views/home.dart';
-
 void main() {
   Inject.initialize();
   runApp(const MyApp());
