@@ -10,7 +10,7 @@ class GetCepRepositoryImp implements GetCepRepository {
   GetCepRepositoryImp(this._getCepDataSource);
 
   @override
-  Future<Either<Exception, CepDTO>> call(String text) async {
+  Future<Either<Exception, CepEntity>> call(String text) async {
     return await _getCepDataSource(text);
   }
 }

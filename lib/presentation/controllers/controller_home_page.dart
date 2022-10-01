@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cep/data/dto/models.dart';
+import 'package:cep/domain/entities/entity.dart';
 import 'package:flutter/widgets.dart';
 import '../../domain/usecase/get_cep_usecase.dart';
 
@@ -9,7 +10,7 @@ class PoController {
   PoController(this._getCepUseCase) {
     fetchData("61645060");
   }
-  ValueNotifier<CepDTO> posts = ValueNotifier<CepDTO>(CepDTO(
+  ValueNotifier<CepEntity> posts = ValueNotifier<CepEntity>(CepEntity(
       cep: '61645060',
       bairro: 'caucaia',
       complemento: 'novo ',

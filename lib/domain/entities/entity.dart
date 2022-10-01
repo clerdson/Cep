@@ -1,4 +1,4 @@
-class Cep {
+class CepEntity {
   late final String cep;
   late final String logradouro;
   late final String complemento;
@@ -10,7 +10,7 @@ class Cep {
   late final String ddd;
   late final String siafi;
 
-  Cep(
+  CepEntity(
       {required this.cep,
       required this.logradouro,
       required this.complemento,
