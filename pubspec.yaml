@@ -41,6 +41,7 @@ dependencies:
   lottie: ^1.4.3
   dartz: ^0.10.1
   get_it: ^7.2.0
+  mask_text_input_formatter: ^2.4.0
 
 dev_dependencies:
   flutter_test:

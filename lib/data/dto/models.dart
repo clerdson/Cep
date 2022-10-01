@@ -3,16 +3,16 @@ import 'package:cep/domain/entities/entity.dart';
 extension CepDTO on CepEntity {
   static CepEntity fromJson(Map<String, dynamic> json) {
     return CepEntity(
-        cep: json['cep'],
-        logradouro: json['logradouro'],
-        complemento: json['complemento'],
-        bairro: json['bairro'],
-        localidade: json['localidade'],
-        uf: json['uf'],
-        ibge: json['ibge'],
-        gia: json['gia'],
-        ddd: json['ddd'],
-        siafi: json['siafi']);
+        cep: json['cep'] ?? "Digite cep valido",
+        logradouro: json['logradouro'] ?? "",
+        complemento: json['complemento'] ?? "",
+        bairro: json['bairro'] ?? "",
+        localidade: json['localidade'] ?? "",
+        uf: json['uf'] ?? "",
+        ibge: json['ibge'] ?? "",
+        gia: json['gia'] ?? "",
+        ddd: json['ddd'] ?? "",
+        siafi: json['siafi'] ?? "");
   }
 
   Map<String, dynamic> toJson() {

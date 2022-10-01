@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lottie/lottie.dart';
 import '../controllers/controller_home_page.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +19,10 @@ class _HomeState extends State<HomePage> {
   bool favorite = false;
   late String cep;
   late String logradouro;
+  var maskFormatter = new MaskTextInputFormatter(
+      mask: ' #####-###',
+      //filter: {"#": RegExp(r'[0-9]')},
+      type: MaskAutoCompletionType.lazy);
   TextEditingController _editingController = TextEditingController();
   @override
   void initState() {
@@ -27,7 +32,7 @@ class _HomeState extends State<HomePage> {
     _controller.fetchData("61645060");
     cep = '61645060';
     logradouro = 'Ceara';
-    _editingController.text = "01001-000";
+    _editingController.text = "";
 
     Future.delayed(Duration.zero, () {
       showDialog(
@@ -76,6 +81,7 @@ class _HomeState extends State<HomePage> {
               height: 80,
             ),
             TextField(
+                inputFormatters: [maskFormatter],
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -94,7 +100,9 @@ class _HomeState extends State<HomePage> {
                     )),
                 controller: _editingController),
             GestureDetector(
-              onTap: () => _controller.fetchData(_editingController.text),
+              onTap: () {
+                _controller.fetchData(maskFormatter.getUnmaskedText());
+              },
               child: Container(
                 width: 200,
                 height: 50,
